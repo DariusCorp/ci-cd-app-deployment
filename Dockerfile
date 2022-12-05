@@ -1,7 +1,7 @@
 # Docker multi-stage build
 
 # 1. Building the App with Maven
-FROM maven:3-jdk-11
+FROM maven:3-jdk-17
 
 ADD . /cxfbootsimple
 WORKDIR /cxfbootsimple
@@ -14,9 +14,7 @@ RUN mvn clean install
 
 
 # Just using the build artifact and then removing the build-container
-FROM openjdk:19-jdk
-
-MAINTAINER Jonas Hecht
+FROM openjdk:17-jdk
 
 VOLUME /tmp
 
